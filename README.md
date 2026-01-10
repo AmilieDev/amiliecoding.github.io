@@ -1,3 +1,1 @@
-# amilieswebsite
-
-stolen from volts hehe
+Ami's Website
