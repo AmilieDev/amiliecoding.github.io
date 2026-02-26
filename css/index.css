@@ -26,6 +26,7 @@ body {
 }
 
 .left {
+  padding-top: 2%;
   text-align: right;
 }
 
@@ -111,3 +112,4 @@ a:hover::after {
   font-weight: 400;
   font-style: normal;
 }
+
