@@ -12,32 +12,45 @@ html, body {
 * {
   font-family: "LeviWindows", sans-serif;
   font-size: 11px;
+  box-sizing: border-box;
 }
 
 body {
-    background-image: url('./imgs/background.avif');
-    background-size : cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-image: url('./imgs/background.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+/* ─── Window title / buttons ─── */
 
 .windowTitle {
   font-family: "LeviWindows", sans-serif;
   flex: 1;
   color: white;
-  font-size: 20px;
+  font-size: clamp(12px, 2vw, 20px);
   font-weight: bold;
   text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
   padding-left: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.windowTitle img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
 }
 
 .windowButtons {
   display: flex;
   gap: 3px;
+  flex-shrink: 0;
 }
 
 .windowBtn {
-  font-size: 15px;
   width: 23px;
   height: 23px;
   background: #c0c0c0;
@@ -51,6 +64,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0;
+  flex-shrink: 0;
 }
 
 .windowBtn:active {
@@ -60,93 +74,72 @@ body {
   border-bottom: 2px solid #ffffff;
 }
 
-.draggableWindow {
-    position: absolute;
-    top: 200px;
-    left: 700px;
-    width: 500px;
-    height: 525px;
-    background-color: #c0c0c0;
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-    overflow: hidden;
+/* ─── Shared window header style ─── */
+
+.draggableWindowHeader,
+.draggableWindowAboutMeHeader,
+.draggableWindowAndroidWarningHeader {
+  height: 28px;
+  background: linear-gradient(to right, #c4708a, #e8a0b4);
+  display: flex;
+  align-items: center;
+  margin: 2px;
+  margin-bottom: 0px;
+  width: calc(100% - 4px);
 }
 
-.draggableWindowHeader {
-    height: 28px;  
-    background: linear-gradient(to right, #c4708a, #e8a0b4);
-    display: flex;
-    align-items: center;
-    margin: 2px;
-    margin-bottom: 0px;
-    width: calc(100% - 4px);
+/* ─── Main draggable window ─── */
+
+.draggableWindow {
+  position: absolute;
+  top: clamp(10px, 15vh, 200px);
+  left: clamp(10px, 50vw, 700px);
+  width: clamp(280px, 90vw, 500px);
+  height: auto;
+  max-height: calc(100vh - 50px); /* stop at taskbar */
+  background-color: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  overflow: visible;
 }
+
+/* ─── About Me window ─── */
 
 .draggableWindowAboutMe {
-    position: absolute;
-    top: 50px;
-    left: 250px;
-    width: 700px;
-    height: 425px;
-    background-color: #c0c0c0;
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-    overflow: hidden;
-    z-index: 5;
+  position: absolute;
+  top: clamp(10px, 5vh, 50px);
+  left: clamp(10px, 20vw, 250px);
+  width: clamp(280px, 90vw, 700px);
+  height: clamp(300px, 60vh, 425px);
+  background-color: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  overflow: hidden;
+  z-index: 5;
 }
 
-.draggableWindowAboutMeHeader {
-    height: 28px;  
-    background: linear-gradient(to right, #c4708a, #e8a0b4);
-    display: flex;
-    align-items: center;
-    margin: 2px;
-    margin-bottom: 0px;
-    width: calc(100% - 4px);
-}
+/* ─── Android Warning window ─── */
 
 .draggableWindowAndroidWarning {
-    position: absolute;
-    top: 500px;
-    left: 320px;
-    width: 300px;
-    height: 150px;
-    background-color: #c0c0c0;
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-    overflow: hidden;
-    z-index: 5;
+  position: absolute;
+  top: clamp(300px, 65vh, 500px);
+  left: clamp(10px, 30vw, 320px);
+  width: clamp(240px, 70vw, 300px);
+  height: clamp(120px, 20vh, 150px);
+  background-color: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  overflow: hidden;
+  z-index: 5;
 }
 
-.draggableWindowAndroidWarningHeader {
-    height: 28px;  
-    background: linear-gradient(to right, #c4708a, #e8a0b4);
-    display: flex;
-    align-items: center;
-    margin: 2px;
-    margin-bottom: 0px;
-    width: calc(100% - 4px);
-}
-
-.windowTitle img {
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-  margin-right: 4px;
-}
-
-.taskbarBtn img {
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-  margin-right: 4px;
-}
+/* ─── Taskbar ─── */
 
 #taskbar {
   position: fixed;
@@ -178,6 +171,8 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 #startBtn:active, .taskbarBtn:active {
@@ -187,11 +182,28 @@ body {
   border-bottom: 2px solid #ffffff;
 }
 
+.taskbarBtn img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
 #taskbarWindows {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 4px;
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Taskbar window buttons truncate on small screens */
+#taskbarWindows .taskbarBtn {
+  max-width: clamp(80px, 20vw, 160px);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #taskbarClock {
@@ -202,69 +214,11 @@ body {
   border-right: 1px solid #ffffff;
   border-bottom: 1px solid #ffffff;
   padding: 2px 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-#draggableWindowAboutMe h1 {
-  font-family: "LeviWindows", sans-serif;
-  font-size: 60px;
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-bottom: 0px;
-}
-
-.aboutContent {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 5px;
-}
-
-.aboutContent img {
-  width: 300px;
-  height: auto;
-}
-
-.aboutTexts {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.aboutTexts p {
-  margin: 0;
-  font-size: 14px;
-}
-
-p {
-  font-family: "LeviWindows", sans-serif;
-  font-size: 14px;
-  padding-left: 5px;
-}
-
-a {
-  font-family: "LeviWindows", sans-serif;
-  font-size: 14px;
-  padding-left: 5px;
-}
-
-
-#draggableWindow h1 {
-  font-family: "LeviWindows", sans-serif;
-  font-size: 35px;
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-bottom: 0px;
-}
-
-.projectsAlignment {
-  text-align: center;
-}
-
-.projectsAlignment img {
-  width: 200px;
-  height: auto;
-}
+/* ─── Desktop icons ─── */
 
 #desktop {
   display: flex;
@@ -273,7 +227,7 @@ a {
   align-content: flex-start;
   gap: 16px;
   padding: 16px;
-  height: calc(100vh - taskbar height here);
+  height: calc(100vh - 30px);
 }
 
 .desktopIcon {
@@ -292,9 +246,221 @@ a {
   font-size: 12px;
   color: white;
   text-shadow: 1px 1px #000000;
+  word-break: break-word;
 }
 
 .desktopIcon:hover {
   background: rgba(0, 0, 128, 0.4);
   outline: 1px dotted white;
+}
+
+/* ─── Start menu ─── */
+
+.start-menu {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  min-width: 220px;
+  max-width: min(280px, 90vw);
+  z-index: 9999;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+  font-size: 13px;
+}
+
+.start-menu-sidebar {
+  width: 28px;
+  background: linear-gradient(to top, #ff9ec8, #c0006a);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.start-menu-sidebar span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 0 #800040;
+  user-select: none;
+}
+
+.start-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 2px;
+  flex: 1;
+}
+
+.start-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.start-menu li a:hover {
+  background: #ff69b4;
+  color: #fff;
+}
+
+.start-menu .divider {
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  margin: 2px 4px;
+}
+
+/* ─── About Me window content ─── */
+
+#draggableWindowAboutMe h1 {
+  font-family: "LeviWindows", sans-serif;
+  font-size: clamp(24px, 5vw, 60px);
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 5px;
+  overflow-y: auto;
+  max-height: calc(100% - 60px);
+}
+
+.aboutContent img {
+  width: clamp(100px, 30%, 300px);
+  height: auto;
+  flex-shrink: 0;
+}
+
+.aboutTexts {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.aboutTexts p {
+  margin: 0;
+  font-size: clamp(11px, 1.5vw, 14px);
+}
+
+/* ─── Projects window content ─── */
+
+#draggableWindow h1 {
+  font-family: "LeviWindows", sans-serif;
+  font-size: clamp(18px, 3vw, 35px);
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+.projectsAlignment {
+  text-align: center;
+  overflow: visible;
+}
+
+.projectsAlignment img {
+  width: clamp(100px, 40%, 200px);
+  height: auto;
+}
+
+/* ─── General text ─── */
+
+p {
+  font-family: "LeviWindows", sans-serif;
+  font-size: clamp(11px, 1.5vw, 14px);
+  padding-left: 5px;
+}
+
+a {
+  font-family: "LeviWindows", sans-serif;
+  font-size: clamp(11px, 1.5vw, 14px);
+  padding-left: 5px;
+}
+
+/* ─── Hidden ─── */
+
+.hidden {
+  display: none;
+}
+
+/* ─── Mobile tweaks (≤ 600px) ─── */
+
+@media (max-width: 600px) {
+  /* Stack About Me image below text on very small screens */
+  .aboutContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aboutContent img {
+    width: 60%;
+  }
+
+  /* Clamp windows tightly to viewport */
+  .draggableWindow,
+  .draggableWindowAboutMe,
+  .draggableWindowAndroidWarning {
+    left: 50% !important;
+    transform: translateX(-50%);
+    width: 95vw !important;
+  }
+
+  .draggableWindow {
+    top: 10px !important;
+    height: auto !important;
+    max-height: calc(100vh - 50px) !important;
+    overflow: visible !important;
+  }
+
+  .draggableWindowAboutMe {
+    top: 5px !important;
+    height: 55vh !important;
+  }
+
+  .draggableWindowAndroidWarning {
+    top: auto !important;
+    bottom: 40px;
+    height: auto !important;
+  }
+
+  /* Hide taskbar window label text, keep icon */
+  #taskbarWindows .taskbarBtn span {
+    display: none;
+  }
+
+  .start-menu {
+    max-width: 95vw;
+  }
+}
+
+/* ─── Tablet tweaks (601px – 1024px) ─── */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .draggableWindow {
+    width: clamp(300px, 70vw, 480px);
+    left: clamp(10px, 10vw, 200px);
+  }
+
+  .draggableWindowAboutMe {
+    width: clamp(300px, 80vw, 640px);
+    left: clamp(10px, 5vw, 100px);
+  }
 }

@@ -4,10 +4,11 @@
     <!-- Ew, yucky metadeta amd imports-->
     <head>
         <link rel="stylesheet" type="text/css" href="./index.css">
-        <title>Amilie.dev</title>
+        <link rel="icon" type="image/x-icon" href="https://amilie.dev/imgs/amiliePfp.png">
+        <title>Amilie98</title>
 
         <meta property="og:title" content="amilie.dev">
-        <meta property="og:description" content="Amilie <3">
+        <meta property="og:description" content="Amilie <3 Windows 98">
         <meta property="og:type" content="website">
         <meta property="og:image" content="https://amilie.dev/imgs/amiliePfp.png">
 
@@ -69,13 +70,29 @@
                 <button class="windowBtn windowClose" onclick="closeWindow('draggableWindowAndroidWarning')">✕</button>
             </div>
 
-            <p>Android is being locked down by Google and don't have long to save it!</p>
+            <p>Android is being locked down by Google and we don't have long to save it!</p>
             <p>Please help us save Android by visiting<a href="https://keepandroidopen.org" target="_blank">Keep Android Open!</a></p>
 
         </div>
 
         <div id="taskbar">
-            <button id="startBtn"><img src="https://amilie.dev/imgs/tuxIcon.png" width="16" height="16" alt="Amilie's profile picture, a space girl in pink."><span>Start!</span></button>
+            <button id="startBtn" onclick="toggleStartMenu()">
+            <img src="https://amilie.dev/imgs/tuxIcon.png" width="16" height="16" alt="Amilie's profile picture, a space girl in pink.">
+            <span>Start!</span>
+        </button>
+
+        <div id="startMenu" class="start-menu hidden">
+            <div class="start-menu-sidebar">
+                <span>Amilie.dev</span>
+            </div>
+            <ul>
+                <li><a href="#" onclick="openWindow('draggableWindowAboutMe'); toggleStartMenu()"><img src="https://amilie.dev/imgs/amiliePfp.png" width="16" height="16">About</a></li>
+                <li><a href="#" onclick="openWindow('draggableWindowProjects'); toggleStartMenu()"><img src="https://amilie.dev/imgs/githubIcon.png" width="16" height="16">Projects</a></li>
+                <li><a href="#" onclick="openWindow('draggableWindowAndroidWarning'); toggleStartMenu()"><img src="https://amilie.dev/imgs/windowsWarn.png" width="16" height="16">Android is changing...</a></li>
+                <li class="divider"></li>
+                <li><a href="#" onclick="openWindow('draggableWindowTerminal'); toggleStartMenu()">Terminal</a></li>
+            </ul>
+        </div>      
             <div id="taskbarWindows">
                 <button class="taskbarBtn" onclick="openWindow('draggableWindowAboutMe')"><img src="https://amilie.dev/imgs/amiliePfp.png">About Me!</button>
                 <button class="taskbarBtn" onclick="openWindow('draggableWindow')"><img src="https://amilie.dev/imgs/githubIcon.png">My Projects!</button>
@@ -98,8 +115,8 @@
                 <span>Android is changing...</span>
             </div>
         </div>
-        
-        <!-- Keep at bottom Ami! Please and thank you :) -->
+
+        <!-- Please keep at bottom, please and thank u :3 -->
         <script src="index.js"></script>
 
     </body>

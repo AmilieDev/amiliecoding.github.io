@@ -2,6 +2,7 @@
 dragElement(document.getElementById("draggableWindow"));
 dragElement(document.getElementById("draggableWindowAboutMe"));
 dragElement(document.getElementById("draggableWindowAndroidWarning"));
+dragElement(document.getElementById("draggableWindowTerminal"));
 
 function dragElement(elmnt){
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -75,3 +76,15 @@ function closeWindow(windowId) {
 function openWindow(windowId) {
     document.getElementById(windowId).style.display = "block";
 }
+
+function toggleStartMenu() {
+  document.getElementById('startMenu').classList.toggle('hidden');
+}
+
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('startMenu');
+  const btn = document.getElementById('startBtn');
+  if (!menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.add('hidden');
+  }
+});
