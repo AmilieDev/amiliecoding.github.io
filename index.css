@@ -1,0 +1,300 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "LeviWindows";
+  src: url("https://amilie.dev/fonts/LeviWindows.ttf") format("truetype");
+}
+
+* {
+  font-family: "LeviWindows", sans-serif;
+  font-size: 11px;
+}
+
+body {
+    background-image: url('./imgs/background.png');
+    background-size : cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.windowTitle {
+  font-family: "LeviWindows", sans-serif;
+  flex: 1;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+  padding-left: 3px;
+}
+
+.windowButtons {
+  display: flex;
+  gap: 3px;
+}
+
+.windowBtn {
+  font-size: 15px;
+  width: 23px;
+  height: 23px;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.windowBtn:active {
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.draggableWindow {
+    position: absolute;
+    top: 200px;
+    left: 700px;
+    width: 500px;
+    height: 525px;
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    overflow: hidden;
+}
+
+.draggableWindowHeader {
+    height: 28px;  
+    background: linear-gradient(to right, #c4708a, #e8a0b4);
+    display: flex;
+    align-items: center;
+    margin: 2px;
+    margin-bottom: 0px;
+    width: calc(100% - 4px);
+}
+
+.draggableWindowAboutMe {
+    position: absolute;
+    top: 50px;
+    left: 250px;
+    width: 700px;
+    height: 425px;
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.draggableWindowAboutMeHeader {
+    height: 28px;  
+    background: linear-gradient(to right, #c4708a, #e8a0b4);
+    display: flex;
+    align-items: center;
+    margin: 2px;
+    margin-bottom: 0px;
+    width: calc(100% - 4px);
+}
+
+.draggableWindowAndroidWarning {
+    position: absolute;
+    top: 500px;
+    left: 320px;
+    width: 300px;
+    height: 150px;
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.draggableWindowAndroidWarningHeader {
+    height: 28px;  
+    background: linear-gradient(to right, #c4708a, #e8a0b4);
+    display: flex;
+    align-items: center;
+    margin: 2px;
+    margin-bottom: 0px;
+    width: calc(100% - 4px);
+}
+
+.windowTitle img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.taskbarBtn img {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+#taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  gap: 4px;
+  z-index: 9999;
+}
+
+#startBtn, .taskbarBtn {
+  height: 24px;
+  font-weight: bold;
+  font-size: 11px;
+  font-family: "LeviWindows", sans-serif;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  cursor: pointer;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#startBtn:active, .taskbarBtn:active {
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+#taskbarWindows {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+#taskbarClock {
+  margin-left: auto;
+  font-size: 11px;
+  border-top: 1px solid #404040;
+  border-left: 1px solid #404040;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding: 2px 6px;
+}
+
+#draggableWindowAboutMe h1 {
+  font-family: "LeviWindows", sans-serif;
+  font-size: 60px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 5px;
+}
+
+.aboutContent img {
+  width: 300px;
+  height: auto;
+}
+
+.aboutTexts {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.aboutTexts p {
+  margin: 0;
+  font-size: 14px;
+}
+
+p {
+  font-family: "LeviWindows", sans-serif;
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+a {
+  font-family: "LeviWindows", sans-serif;
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+
+#draggableWindow h1 {
+  font-family: "LeviWindows", sans-serif;
+  font-size: 35px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+.projectsAlignment {
+  text-align: center;
+}
+
+.projectsAlignment img {
+  width: 200px;
+  height: auto;
+}
+
+#desktop {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 16px;
+  padding: 16px;
+  height: calc(100vh - taskbar height here);
+}
+
+.desktopIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 64px;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px;
+  text-align: center;
+}
+
+.desktopIcon span {
+  font-family: "LeviWindows", sans-serif;
+  font-size: 12px;
+  color: white;
+  text-shadow: 1px 1px #000000;
+}
+
+.desktopIcon:hover {
+  background: rgba(0, 0, 128, 0.4);
+  outline: 1px dotted white;
+}
