@@ -2,7 +2,9 @@
 dragElement(document.getElementById("draggableWindow"));
 dragElement(document.getElementById("draggableWindowAboutMe"));
 dragElement(document.getElementById("draggableWindowAndroidWarning"));
-dragElement(document.getElementById("draggableWindowTerminal"));
+
+// Currently unused elements. To be used in the future.
+// dragElement(document.getElementById("draggableWindowTerminal"));
 
 function dragElement(elmnt){
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
